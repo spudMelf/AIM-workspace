@@ -30,7 +30,8 @@ class DeepfakeDataset(Dataset):
     def __len__(self):
         return self.n_samples
 
-dataset = DeepfakeDataset(directory_path='../release_in_the_wild/', transform=transforms.Compose([
+"""
+dataset = DeepfakeDataset(directory_path='/deepfake_mel_spectrograms', transform=transforms.Compose([
     transforms.Resize((224, 224)),  # Resize the image to the required input size of your CNN
     transforms.ToTensor(),           # Convert the image to a PyTorch tensor
     transforms.Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])  # Normalize the image
@@ -50,3 +51,4 @@ for i in range(10):
     ax.axis("off")
 plt.tight_layout()
 plt.show()
+"""
