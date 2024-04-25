@@ -1,20 +1,24 @@
 from flask import Flask, jsonify, request
 from predict import get_prediction
-from os import path
 from pydub import AudioSegment
 from werkzeug.utils import secure_filename
 import os
-from PIL import Image
 
 from utils import allowed_file, wav_to_melspectrogram, clear_directory
 
-UPLOAD_FOLDER = '/Users/eamon/Desktop/AIM/deepfake-project/flask_server/app/user_files'
+UPLOAD_FOLDER = '/Users/eamon/Desktop/AIM/deepfake-project/catchFake/flask_server/app/user_files'
 
 app = Flask(__name__)
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
 # there is definitely a better way to do this but I got lazy tbh so this will work 
 # until someone smarter tells me how to fix it
+import datetime
+@app.route('/data')
+def data():
+    x = datetime.datetime.now()
+    return jsonify({'class_id': 0, 'class_name': x})
+
 @app.route('/predict', methods=['POST'])
 def predict():
     if request.method == 'POST':
@@ -40,6 +44,7 @@ def predict():
         with open(app.config['UPLOAD_FOLDER'] + "/temp.png", 'rb') as image:
             img_bytes = image.read()
             class_id, class_name = get_prediction(image_bytes=img_bytes)
+            image.close()
             clear_directory(app.config['UPLOAD_FOLDER'])
             return jsonify({'class_id': class_id, 'class_name': class_name})
         
