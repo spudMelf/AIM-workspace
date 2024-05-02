@@ -1,5 +1,11 @@
 .App {
   text-align: center;
+  background: black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100vh;
 }
 
 .App-logo {
@@ -13,14 +19,60 @@
   }
 }
 
+div > app-header {
+  width: 100vw;
+  height: 100vh;
+}
+
+#vidFile {
+  text-align: center;
+  width: 100%;
+  height: 100vh;
+  object-fit: cover;
+  margin-top: -10vh;
+  position: absolute;
+
+}
+.App-Body-Content {
+  position: absolute;
+}
+
 .App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+  background-color: rgb(0, 0, 0);
+  min-height: 20vh;
+  width: 100vw;
   display: flex;
-  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  font-size: calc(10px + 2vmin);
+  color: #7e7e7e;
+}
+
+.header-logo {
+  font-size: 36px;
+  font-family: "Playfair Display", serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  margin-left: auto;
+  margin-right: auto;
+  z-index: 10;
+}
+
+.app-menu {
+  display: flex;
+  align-items: center;
+  list-style: none;
+  font-size: 18px;
+  gap: 90px;
+}
+
+.App-body {
+  background-color: black;
+  min-height: 80vh;
+  display: flex;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
   color: white;
 }
 
@@ -36,3 +88,73 @@
     transform: rotate(360deg);
   }
 }
+
+#chooseFile {
+  display: none;
+}
+
+
+.chooseFile-label-before {
+  font-size: 30px;
+  padding: 15px;
+  background-color:#000000;
+  border: red 2px solid;
+  color: #7e7e7e;
+  border-radius: 45px;
+  cursor: pointer;
+  transition: 0.3s;
+  font-family: "Playfair Display", serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  margin-right: 400px;
+
+}
+  .chooseFile-label-before:hover {
+    background-color: red;
+    color: white;
+  }
+
+.chooseFile-label-after {
+  font-size: 30px;
+  padding: 15px;
+  background-color:#c1ffb4;
+  color: #000000;
+  border: none;
+  border-radius:45px;
+  cursor: pointer;
+  transition: 0.3s;
+  font-family: "Playfair Display", serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  margin-right: 400px;
+}
+
+
+.checkFile {
+  border: rgb(159, 0, 177) 2px solid;
+  background-color:#000000;
+  color: #7e7e7e;
+  font-size: 30px;
+  padding: 15px;
+  border-radius: 45px;
+  cursor: pointer;
+  transition: 0.3s;
+  font-family: "Playfair Display", serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  margin-left: 400px;
+
+}
+
+  .checkFile:hover {
+    background: rgb(159, 0, 177);
+    color: white;
+  }
+
+  .number {
+    margin-bottom: 20vh;
+  }
+
