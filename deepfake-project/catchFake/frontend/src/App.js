@@ -112,7 +112,7 @@ function App() {
                 <body className="App-body">
                     <video id="vidFile" src={video} autoPlay loop muted/>
                     <div className="App-Body-Content">
-                        <label for="chooseFile" class={isUploaded ? "chooseFile-label-after" : "chooseFile-label-before"}>upload file</label>
+                        <label for="chooseFile" className={isUploaded ? "chooseFile-label-after" : "chooseFile-label-before"}>upload file</label>
                         <input id="chooseFile" type="file" onChange={handleFileChange} />
 
                         <button className="checkFile" onClick={handleUpload}>catch</button>
