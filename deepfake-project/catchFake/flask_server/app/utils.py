@@ -5,7 +5,7 @@ from matplotlib import pyplot as plt
 import numpy as np
 import os
 
-ALLOWED_EXTENSIONS = {'wav', 'mp3'}
+ALLOWED_EXTENSIONS = {'wav', 'mp3', 'webm'}
 def allowed_file(filename):
     return '.' in filename and \
            filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS

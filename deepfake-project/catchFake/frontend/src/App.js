@@ -5,6 +5,7 @@ import React, { useState, useEffect } from "react";
 import "./App.css";
 import BarLoader from "react-spinners/BarLoader";
 import video from "./assets/AdobeStock_320627115.mp4"
+import { AudioRecorder, useAudioRecorder } from 'react-audio-voice-recorder';
 
 function App() {
     // usestate for setting a javascript
@@ -76,11 +77,23 @@ function App() {
       });
     };
 
+    const recorderControls = useAudioRecorder(
+      {
+        noiseSuppression: true,
+        echoCancellation: true,
+      },
+      (err) => console.table(err) // onNotAllowedOrFound
+    );
+    
+    const addAudioElement = (blob) => {
+      const url = URL.createObjectURL(blob);
+      const audio = document.createElement('audio');
+      audio.src = url;
+      audio.controls = true;
+      //document.body.appendChild(audio);
+    };
+
     const [isUploaded, setIsUploaded] = useState(false);
-
-      
-
-
 
     return (
         <div className="App">
@@ -116,6 +129,12 @@ function App() {
                         <input id="chooseFile" type="file" onChange={handleFileChange} />
 
                         <button className="checkFile" onClick={handleUpload}>catch</button>
+                        <AudioRecorder
+                          onRecordingComplete={(blob) => addAudioElement(blob)}
+                          recorderControls={recorderControls}
+                          downloadOnSavePress={true}
+                          showVisualizer={true}
+                        />
                         <p className="number">{data.class_id}</p>
                         <p className="number">{data.class_name}</p>
                     </div>
