@@ -13,6 +13,7 @@ class DeepfakeDataset(Dataset):
         self.image_paths = np.array(df['file'])[:length]
         labels = np.array(df['label'])[:length].reshape(-1, 1)
         result = (labels == 'spoof').astype(int)
+        result /= 1.0
         self.y = torch.tensor(result)
         self.n_samples = len(labels)
         self.directory_path = directory_path

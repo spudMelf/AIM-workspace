@@ -6,7 +6,7 @@ import os
 
 from utils import allowed_file, wav_to_melspectrogram, clear_directory
 
-UPLOAD_FOLDER = '/Users/eamon/Desktop/AIM/deepfake-project/catchFake/flask_server/app/user_files'
+UPLOAD_FOLDER = r"C:\Users\apank\Eamahn\AIM-workspace\deepfake-project\catchFake\flask_server\app\user_files"
 
 app = Flask(__name__)
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
