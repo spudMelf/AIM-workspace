@@ -34,6 +34,10 @@ def predict():
             sound = AudioSegment.from_file(dst, format='wav')
             sound = sound.set_frame_rate(22050)
             sound.export(dst, format="wav")
+        elif str(file.filename[-4:]) == 'webm':
+            sound = AudioSegment.from_file(src, format='webm') 
+            sound = sound.set_frame_rate(22050)
+            sound.export(dst, format="wav")
         else:
             sound = AudioSegment.from_file(src, format='wav')
             sound = sound.set_frame_rate(22050)
