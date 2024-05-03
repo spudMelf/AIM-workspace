@@ -45,5 +45,20 @@ def get_prediction(image_bytes):
     else:
         return [-1, 'ERROR: prediction error in get_prediction()']
     
+PATH2 = 'spec_with_noise_0.pt'
+device=torch.device("cpu")
+model_noise = CustomResNet(num_classes=2)
+model_noise.load_state_dict(torch.load(PATH2, map_location=device))
+model_noise.eval
 
+def get_prediction_w_noise(image_bytes):
+    tensor = transform_image(image_bytes)
+    outputs = model_noise.forward(tensor)
+    _, predicted = torch.max(outputs.data, 1)
+    if predicted == 1:
+        return [1, 'spoof']
+    elif predicted == 0:
+        return [0, 'bona-fide']
+    else:
+        return [-1, 'ERROR: prediction error in get_prediction()']
     
