@@ -138,7 +138,8 @@ function App() {
                             />
                           </div>
                         <button className="checkFile" onClick={handleUpload}>catch</button>
-                        <p className="number">{data.class_id}</p>
+                        <p className="resultHeader">result:</p>
+                        <p className="result">{data.class_id}</p>
                         <p className="number">{data.class_name}</p>
                     </div>
                 </body>
