@@ -125,17 +125,21 @@ function App() {
                 <body className="App-body">
                     <video id="vidFile" src={video} autoPlay loop muted/>
                     <div className="App-Body-Content">
-                        <label for="chooseFile" className={isUploaded ? "chooseFile-label-after" : "chooseFile-label-before"}>upload file</label>
-                        <input id="chooseFile" type="file" onChange={handleFileChange} />
-
+                          <div className="buttonContainer1">
+                            <label for="chooseFile" className={isUploaded ? "chooseFile-label-after" : "chooseFile-label-before"}>upload file</label>
+                            <input id="chooseFile" type="file" onChange={handleFileChange} />
+                            <p>or</p>
+                            <AudioRecorder
+                              className="recordFile"
+                              onRecordingComplete={(blob) => addAudioElement(blob)}
+                              recorderControls={recorderControls}
+                              downloadOnSavePress={true}
+                              showVisualizer={true}
+                            />
+                          </div>
                         <button className="checkFile" onClick={handleUpload}>catch</button>
-                        <AudioRecorder
-                          onRecordingComplete={(blob) => addAudioElement(blob)}
-                          recorderControls={recorderControls}
-                          downloadOnSavePress={true}
-                          showVisualizer={true}
-                        />
-                        <p className="number">{data.class_id}</p>
+                        <p className="resultHeader">result:</p>
+                        <p className="result">{data.class_id}</p>
                         <p className="number">{data.class_name}</p>
                     </div>
                 </body>
